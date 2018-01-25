@@ -1,6 +1,5 @@
 package org.opencv.android;
 
-import java.lang.reflect.Method;
 import java.util.List;
 
 import android.content.Context;
@@ -158,13 +157,8 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                         params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
                     }
 
-                    if(Build.BRAND.equalsIgnoreCase("android")){
-                        params.setPreviewFormat(ImageFormat.YV12);
-                    }
-
                     mCamera.setParameters(params);
                     params = mCamera.getParameters();
-                    mPreviewFormat = params.getPreviewFormat();
 
                     mFrameWidth = params.getPreviewSize().width;
                     mFrameHeight = params.getPreviewSize().height;
@@ -201,10 +195,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     } else
                        mCamera.setPreviewDisplay(null);
 
-                    /* Modfied to block Rotation Camera */
-                    setDisplayOrientation(mCamera, 90);
-                    mCamera.setPreviewDisplay(getHolder());
-
                     /* Finally we are ready to start the preview */
                     Log.d(TAG, "startPreview");
                     mCamera.startPreview();
@@ -218,20 +208,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         }
 
         return result;
-    }
-
-
-    protected void setDisplayOrientation(Camera camera, int angle){
-        Method downPolymorphic;
-        try
-        {
-            downPolymorphic = camera.getClass().getMethod("setDisplayOrientation", new Class[] { int.class });
-            if (downPolymorphic != null)
-                downPolymorphic.invoke(camera, new Object[] { angle });
-        }
-        catch (Exception e1)
-        {
-        }
     }
 
     protected void releaseCamera() {
@@ -325,11 +301,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
         @Override
         public Mat rgba() {
-            if(mPreviewFormat == ImageFormat.NV21) {
-                Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_NV21, 4);
-            }else if(mPreviewFormat == ImageFormat.YV12){
-                Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_I420, 4);
-            }
+            Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_NV21, 4);
             return mRgba;
         }
 

@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Fmendes\Desktop\Detector_de_Bordas\app\build\intermediates\exploded-aar\Detector_de_Bordas\openCVLibrary300\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="f34c9018d390e23197fc9fe9379bd2cc3c2211ae">
+        <dex dex="C:\Users\Fmendes\Desktop\Detector_de_Bordas\app\build\intermediates\pre-dexed\debug\Detector_de_Bordas-openCVLibrary300-unspecified_5f62461862e192cf8eeda6eac87176d354fe00e7.jar" />
+    </item>
+
+</items>

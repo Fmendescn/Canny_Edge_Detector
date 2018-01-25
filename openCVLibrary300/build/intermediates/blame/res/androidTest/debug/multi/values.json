@@ -1,6 +1,10 @@
 [
     {
-        "outputFile": "C:\\Users\\Mestrado\\AndroidStudioProjects\\Op\\openCVLibrary300\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+        "outputFile": "C:\\Users\\Mestrado\\AndroidStudioProjects\\Detector_de_Bordas\\openCVLibrary300\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
+        "map": []
+    },
+    {
+        "outputFile": "C:\\Users\\Fmendes\\Desktop\\Detector_de_Bordas\\openCVLibrary300\\build\\intermediates\\res\\merged\\androidTest\\debug\\values\\values.xml",
         "map": []
     }
 ]
